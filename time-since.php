@@ -79,7 +79,7 @@ class TimeSince {
   }
 
   /**
-   * Contactite the title attribute with markup.
+   * Concatenate the title attribute with markup.
    *
    * @since 1.0.0
    *
