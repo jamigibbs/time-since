@@ -12,23 +12,18 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-// Basic stop of brute force use.
-defined('ABSPATH') or die('Unauthorized Access!');
+// Stop brute force.
+defined('ABSPATH') or die('Unauthorized Access.');
 
-/**
- * Implement the plugin. Let your post time travel.
- */
 class TimeSince {
-  /**
-   * A basic constructor.
-   */
+
   public function __construct() {
     add_shortcode('time-since', array($this, 'shortcode_time_since'));
     add_action('plugins_loaded',  array($this, 'load_plugin_textdomain'));
   }
 
   /**
-   * Load gettext translate for text domain.
+   * Load the text domain for translation.
    *
    * @since 1.0.0
    *
@@ -39,13 +34,13 @@ class TimeSince {
   }
 
   /**
-   * Generate year label.
+   * Generate the year label.
    *
    * @since 1.0.0
    *
    * @return string
    */
-  public function year_label_string_return($year) {
+  private function year_label_string_return($year) {
     if ($year === 0 || $year > 1) {
       return __('Years,', 'time-since');
     } else {
@@ -54,13 +49,13 @@ class TimeSince {
   }
 
   /**
-   * Generate month label.
+   * Generate the month label.
    *
    * @since 1.0.0
    *
    * @return string
    */
-  public function month_label_string_return($month) {
+  private function month_label_string_return($month) {
     if ($month === 0 || $month > 1) {
       return __('Months,', 'time-since');
     } else {
@@ -69,13 +64,13 @@ class TimeSince {
   }
 
   /**
-   * Generate day label.
+   * Generate the day label.
    *
    * @since 1.0.0
    *
    * @return string
    */
-  public function day_label_string_return($day) {
+  private function day_label_string_return($day) {
     if ($day === 0 || $day > 1) {
       return __('Days', 'time-since');
     } else {
@@ -84,19 +79,21 @@ class TimeSince {
   }
 
   /**
-   * Add markup to title and return from shortcode attribute.
+   * Contactite the title attribute with markup.
    *
    * @since 1.0.0
    *
    * @return string
    */
-  public function title_string($title) {
+  private function title_string($title) {
     return "<h2>" . $title . "</h2>";
   }
 
   /**
-   * A method to return the markup that replaces the shortcode.
+   * Make our date calculations and return the markup for the shortcode.
+   * 
    * @param array $atts
+   * 
    * @return string
    */
   public function shortcode_time_since($atts) {
@@ -137,4 +134,5 @@ class TimeSince {
     return $this->title_string($atts['title']) . $interval->y . " " . $this->year_label_string_return($interval->y) . " " . $interval->m .  " " . $this->month_label_string_return($interval->m) . " " . $interval->d . " "  . $this->day_label_string_return($interval->d); 
   }
 }
+
 new TimeSince;
