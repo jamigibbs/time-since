@@ -10,4 +10,4 @@ Values are passed into a shortcode which can be added to any page, post, or as a
 [time-since y=2006 m=07 d=01 title="Time Since Important Event"]
 ```
 
-<img src="preview.png" alt="Time Since Preview" width="100%"/>
+<img src="preview.png" alt="Time Since Preview" width="50%"/>
