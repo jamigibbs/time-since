@@ -75,8 +75,8 @@ class TimeSince {
    *
    * @return string
    */
-  public function day_label_string_return($month) {
-    if ($month === 0 || $month > 1) {
+  public function day_label_string_return($day) {
+    if ($day === 0 || $day > 1) {
       return __('Days', 'time-since');
     } else {
       return __('Day', 'time-since');
